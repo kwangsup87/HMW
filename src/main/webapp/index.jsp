@@ -32,16 +32,21 @@
 <body>
  <div data-role="page">
 	<div data-role="header"> 
+		Login
 	</div>
-	야호
-	<div data-role="content"> 
-	</div>
-	dgdddsdss
+	<div data-role="content">
+			<form method="post" >
+			<input type="text" name="userId" >
+			<input type="password" name="userPW">
+			<input type="submit" value="Login">
+			<input type="button" name="Join" value="Join">
+		</form> 
+	</div> 
 	<div data-role="footer"> 
 	</div>
 </div>
 
-
+<!-- 
 	<div id="map" class="map"></div>
 	<script type="text/javascript">
 		var map= new ol.Map({
@@ -57,5 +62,7 @@
 			})
 		});
 	</script>
+	
+ -->	
 </body>
 </html>
