@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
+
     pageEncoding="EUC-KR"%>
  
 <!DOCTYPE html>
@@ -32,7 +33,7 @@
 <body>
  <div data-role="page">
 	<div data-role="header"> 
-		¾ßÈ£ 
+		qw
 	</div> 
 	<div data-role="content"> 
 	</div>
