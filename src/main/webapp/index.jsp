@@ -35,7 +35,7 @@
 		Login
 	</div>
 	<div data-role="content">
-			<form method="post" >
+			<form method="post" action="select.do">
 			<input type="text" name="userId" >
 			<input type="password" name="userPW">
 			<input type="submit" value="Login">
