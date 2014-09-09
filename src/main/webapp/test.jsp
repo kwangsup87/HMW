@@ -8,7 +8,6 @@
 	<title>JSP</title>
 </head>
 <body>
-tesqqqqqewqqweer
- qweqwer
+진짜 이번엔 뭔가 ...??
 <body>
 </html>
