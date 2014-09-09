@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
  
 <!DOCTYPE html>
 <html>
@@ -33,11 +32,11 @@
 <body>
  <div data-role="page">
 	<div data-role="header"> 
-		qw
-	</div> 
+	</div>
+	야호
 	<div data-role="content"> 
 	</div>
-	
+	dgdddsdss
 	<div data-role="footer"> 
 	</div>
 </div>
