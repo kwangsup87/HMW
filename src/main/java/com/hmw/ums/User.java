@@ -3,19 +3,18 @@ package com.hmw.ums;
 public class User {
 	private String userId;
 	private String passwd;
-	private String name;
+	private String username;
 	private String email;
 	
-	public User(){
-		super();
-	}
-	public User(String userId, String passwd, String name, String email){
+
+	public User(String userId, String passwd, String username, String email){
 		super();
 		this.userId = userId;
 		this.passwd = passwd;
-		this.name = name;
+		this.username = username;
 		this.email = email;
 	}
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -28,11 +27,11 @@ public class User {
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
 	}
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getEmail() {
 		return email;
@@ -40,6 +39,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public User(){
+		super();
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -47,14 +50,14 @@ public class User {
 		builder.append(userId);
 		builder.append(", passwd=");
 		builder.append(passwd);
-		builder.append(", name=");
-		builder.append(name);
+		builder.append(", username=");
+		builder.append(username);
 		builder.append(", email=");
 		builder.append(email);
 		builder.append("]");
 		return builder.toString();
-	} 
-	
+	}
+
 	
 
 }

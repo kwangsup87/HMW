@@ -32,10 +32,12 @@ public class WebController {
 	public String joinExec(User u, Model m){
 		System.out.println("Controller:"+u.toString());
 		boolean result = ser.insert(u);
-		if(result)
+/*		if(result)
 			return "redirect:/index.jsp";
 		else
 			return "";
+*/
+		return "redirect:/index.jsp";
 	}
 
 }
