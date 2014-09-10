@@ -6,11 +6,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link rel="stylesheet" href="/css/egovframework/mbl/cmm/jquery.mobile-1.3.2.css">
-	<link rel="stylesheet" href="/css/egovframework/mbl/cmm/EgovMobile-1.3.2.css">
-	<script type="text/javascript" src="/js/egovframework/mbl/cmm/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="/js/egovframework/mbl/cmm/jquery.mobile-1.3.2.min.js"></script>
-	<script type="text/javascript" src="/js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
+	<link rel="stylesheet" href="css/egovframework/mbl/cmm/jquery.mobile-1.3.2.css">
+	<link rel="stylesheet" href="css/egovframework/mbl/cmm/EgovMobile-1.3.2.css">
+	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	
 	
 	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">
@@ -24,24 +24,27 @@
 			width:100%;
 		}
 	</style>
-	<script type="text/javascript" src="js/ol3/ol.js"></script>
-	
-	
+	<script type="text/javascript" src="js/ol3/ol.js"></script>  
 	<title>JSP</title>
 </head>
 <body>
  <div data-role="page">
 	<div data-role="header"> 
+		로그인
 	</div>
-	야호
-	<div data-role="content"> 
-	</div>
-	dgdddsdss
+	<div data-role="content">
+			<form method="post" action="select.do">
+			<input type="text" name="userId" >
+			<input type="password" name="userPW">
+			<input type="submit" value="Login">
+			<input type="button" name="Join" value="Join" onclick="location.href='join_page.do'">
+		</form> 
+	</div> 
 	<div data-role="footer"> 
 	</div>
 </div>
 
-
+<!-- 
 	<div id="map" class="map"></div>
 	<script type="text/javascript">
 		var map= new ol.Map({
@@ -57,5 +60,7 @@
 			})
 		});
 	</script>
+	
+ -->	
 </body>
 </html>

@@ -9,5 +9,6 @@
 </head>
 <body>
 진짜 이번엔 뭔가 ...??쫌 되라..ㅠㅠ
+${title }
 <body>
 </html>
