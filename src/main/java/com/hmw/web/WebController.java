@@ -13,9 +13,8 @@ import com.hmw.ums.UserService;
 @Controller
 public class WebController {
 	 
-	@Autowired 
-	UserService ser; 
-	
+	@Autowired
+	UserService ser;  
 	
 	@RequestMapping("/select.do")
 	public String map(Model m){

@@ -1,21 +1,20 @@
 package com.hmw.ums;
-
-import org.apache.ibatis.session.SqlSession; 
-import org.springframework.beans.factory.annotation.Autowired;
+  
+import org.mybatis.spring.support.SqlSessionDaoSupport; 
 import org.springframework.stereotype.Repository;
+ 
 
 
 @Repository("dao")
-public class UserDAOImp implements UserDAO {
-
-	@Autowired
-	SqlSession  sess;
+//@Repository
+public class UserDAOImp extends SqlSessionDaoSupport implements UserDAO {
+  
 	
 	@Override
 	public boolean insert(User u) {
 		// TODO Auto-generated method stub
-		System.out.println(u.toString()+" insert Comp");
-		sess.insert("usermap.insert",u);
+		System.out.println(u.toString()+" insert Comp"); 
+	//	getSqlSession().insert("inesrt",u);
 		return true;
 	}
 
