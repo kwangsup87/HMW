@@ -16,10 +16,18 @@ public class WebController {
 	@Autowired
 	UserService ser;  
 	
-	@RequestMapping("/select.do")
-	public String map(Model m){
-		m.addAttribute("title", "eeeeee");
-		return "select";
+
+	@RequestMapping("/index.do")
+	public String indexPage(Model m){
+		return "redirect:/index.jsp";
+	}
+	
+	@RequestMapping("/login.do")
+	public String map(String userId, String passwd, Model m){
+		System.out.println(userId+", "+passwd);
+		boolean result = ser.login(userId, passwd);
+		if(result) return "select";
+		else return "redirect:/index.jsp";
 	}
 	
 	@RequestMapping("/join_page.do")
@@ -31,12 +39,10 @@ public class WebController {
 	public String joinExec(User u, Model m){
 		System.out.println("Controller:"+u.toString());
 		boolean result = ser.insert(u);
-/*		if(result)
+		if(result)
 			return "redirect:/index.jsp";
 		else
-			return "";
-*/
-		return "redirect:/index.jsp";
+			return "join";
 	}
 
 }

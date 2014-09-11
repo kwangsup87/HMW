@@ -13,54 +13,41 @@
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	
 	
-	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">
+	<!-- <link type="text/css" rel="stylesheet" href="css/ol3/ol.css"> -->
 	<style>
 		body{
 			padding:0;
 			margin:0;
 		}
-		.map{
-			height:100%;
-			width:100%;
-		}
 	</style>
-	<script type="text/javascript" src="js/ol3/ol.js"></script>  
+	  
 	<title>JSP</title>
 </head>
 <body>
  <div data-role="page">
-	<div data-role="header"> 
-		로그인
+	<div data-role="header" class="ui-body-g center"> 
+		<h4>로그인</h4>
 	</div>
 	<div data-role="content">
-			<form method="post" action="select.do">
-			<input type="text" name="userId" >
-			<input type="password" name="userPW">
-			<input type="submit" value="Login">
-			<input type="button" name="Join" value="Join" onclick="location.href='join_page.do'">
+		<form method="post" action="login.do">
+		<table style="margin-left:auto; margin-right:auto; width:100%;">
+		<tr>
+			<th>아 이 디</th>
+			<td><input type="text" name="userId" ></td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><input type="password" name="passwd"></td>
+		</tr>
+		<tr>			
+			<td><a href="join_page.do" data-role="button">회원가입</a></td>
+			<td><input type="submit" value="로그인"></td>
+		</tr>
+		</table>
 		</form> 
 	</div> 
 	<div data-role="footer"> 
 	</div>
 </div>
-
-<!-- 
-	<div id="map" class="map"></div>
-	<script type="text/javascript">
-		var map= new ol.Map({
-			target:'map',
-			layers:[
-			        new ol.layer.Tile({
-			        	source:new ol.source.MapQuest({layer: 'sat'})
-			        })
-			        ],
-			view:new ol.View({
-				center: ol.proj.transform([37.41, 8.82], 'EPSG:4326', 'EPSG:3857'),
-				zoom:4
-			})
-		});
-	</script>
-	
- -->	
 </body>
 </html>

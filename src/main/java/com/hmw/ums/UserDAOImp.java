@@ -13,17 +13,23 @@ public class UserDAOImp  implements UserDAO {
 	SqlSessionTemplate sess;
 	
 	@Override
-	public boolean insert(User u) {
-		// TODO Auto-generated method stub
-		System.out.println(u.toString()+" insert Comp"); 
-		sess.insert("ump.insert",u); 
-		return true;
+	public boolean insert(User u) {  
+		int i = sess.insert("ump.insert",u);
+		System.out.println(i); 
+		if(i==1)	return true;
+		else		return false;
 	}
 
 	@Override
 	public boolean login(String userId, String password) {
 		// TODO Auto-generated method stub
-		return false;
+		User u = sess.selectOne("ump.select", userId);
+		System.out.println(u.toString());
+		if(u!=null){
+			if(u.getPasswd().equals(password))		return true;			
+			else		return false;
+		}
+		else return false;
 	}
 
 	@Override

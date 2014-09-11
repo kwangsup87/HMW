@@ -12,4 +12,7 @@
 			#{email}
 		 )
 	</insert>
+	<select id="select" parameterType="string" resultType="users">
+		select * from usertable where userid like #{userId}
+	</select>
 </mapper>

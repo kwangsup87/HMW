@@ -13,47 +13,38 @@
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	<title>회원가입</title>
 </head>
-<body>
+<body> 
+	<div data-role="header" class="ui-body-g center"> 
+		<h4>회원가입</h4>
+	</div>
+	<div data-role="content"> 
 	 <form action="join_exe.do" method="post">
-	 <table>
+	 <table style="margin-left:auto; margin-right:auto; width:100%;">
 	 	<tr>
-		 	<th>
-		 		아이디
-		 	</th>
-		 	<td>
-		 		<input type="text" name="userId">
-		 	</td>
+		 	<th>아이디</th>
+		 	<td><input type="text" name="userId"></td>
 	 	</tr>
 	 	<tr>
-		 	<th>
-		 		비밀번호
-		 	</th>
-		 	<td>
-		 		<input type="password" name="passwd">
-		 	</td>
+		 	<th>비밀번호</th>
+		 	<td><input type="password" name="passwd"></td>
 	 	</tr>
 	 	<tr>
-		 	<th>
-		 		이름
-		 	</th>
-		 	<td>
-		 		<input type="text" name="username">
-		 	</td>
+		 	<th>이름</th>
+		 	<td><input type="text" name="username"></td>
 	 	</tr>
 	 	<tr>
-		 	<th>
-		 		이메일
-		 	</th>
-		 	<td>
-		 		<input type="text" name="email">
-		 	</td>
+		 	<th>이메일	</th>
+		 	<td><input type="text" name="email"></td>
 	 	</tr>
 	 	<tr>
-	 		<td colspan="2">
-	 			<input type="submit" value="회원가입"> 
-	 		</td>
+	 		<td>
+	 		<a href="index.do" data-role="button">취소</a></td>
+	 		<td><input type="submit" value="회원가입 완료"></td>
 	 </table>
-	 
 	 </form>
+	 </div>
+	  
+	 <div data-role="footer"> 
+	 </div>
 </body>
 </html>
