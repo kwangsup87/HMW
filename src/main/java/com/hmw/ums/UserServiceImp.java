@@ -3,6 +3,9 @@ package com.hmw.ums;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImp implements UserService {
@@ -11,12 +14,15 @@ public class UserServiceImp implements UserService {
 	@Qualifier("dao")
 	UserDAO userdao; 
 	
+
+	@Transactional( propagation=Propagation.REQUIRED, isolation=Isolation.READ_COMMITTED,
+			timeout=10, readOnly=false, rollbackFor=java.lang.Exception.class) 
 	@Override
 	public boolean insert(User u) {
 		// TODO Auto-generated method stub
 		return userdao.insert(u);
 	}
-
+	
 	@Override
 	public boolean login(String userId, String password) {
 		// TODO Auto-generated method stub
