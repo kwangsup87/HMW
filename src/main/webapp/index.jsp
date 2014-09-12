@@ -13,7 +13,9 @@
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	
 	
-	<!-- <link type="text/css" rel="stylesheet" href="css/ol3/ol.css"> -->
+	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">
+	<script type="text/javascript" src="js/ol3/ol.js"></script>
+	 
 	<style>
 		body{
 			padding:0;

@@ -5,5 +5,5 @@
  */
 
 (function(){
-	test = test1;
+	alert("ggg");
 })();
