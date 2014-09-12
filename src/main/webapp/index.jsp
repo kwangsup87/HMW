@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/jquery.mobile-1.3.2.css">
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/EgovMobile-1.3.2.css">
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/eventScript.js"></script>
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery.mobile-1.3.2.min.js"></script>
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	
@@ -20,13 +21,13 @@
 		body{
 			padding:0;
 			margin:0;
-		}
-	</style>
+		}  
+	</style> 
 	  
 	<title>JSP</title>
 </head>
 <body>
- <div data-role="page">
+ <div data-role="page" id="mainpage">
 	<div data-role="header" class="ui-body-g center"> 
 		<h4>로그인</h4>
 	</div>
@@ -47,8 +48,9 @@
 		</tr>
 		</table>
 		</form> 
-	</div> 
-	<div data-role="footer"> 
+	</div>
+	<div data-role="footer" data-position="fixed" class="ui-body-g center">
+	<h4>footer</h4>
 	</div>
 </div>
 </body>
