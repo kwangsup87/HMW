@@ -21,15 +21,12 @@ public class UserDAOImp  implements UserDAO {
 	}
 
 	@Override
-	public boolean login(String userId, String password) {
+	public User login(String userId, String password) {
 		// TODO Auto-generated method stub
 		User u = sess.selectOne("ump.select", userId);
 		System.out.println(u.toString());
-		if(u!=null){
-			if(u.getPasswd().equals(password))		return true;			
-			else		return false;
-		}
-		else return false;
+		if(u.getPasswd().equals(password))		return u;			
+		else		return null;
 	}
 
 	@Override

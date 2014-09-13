@@ -1,5 +1,6 @@
 function fixContentHeight(){
 	console.log("fixContentHeight exec");
+	console.log(($(window)).width());
     var footer = $("div[data-role='footer']:visible"),
         content = $("div[data-role='content']:visible:visible"),
         viewHeight = $(window).height(),
@@ -7,13 +8,17 @@ function fixContentHeight(){
     if ((content.outerHeight() + footer.outerHeight()) !== viewHeight) {
         contentHeight -= (content.outerHeight() - content.height() + 1);
         content.height(contentHeight);
+        $("#map").width( $(window).width() );
+        $("#map").height(contentHeight);
     }
+    
+    
 }	
 $(document).bind("pageinit",function(event){
 	fixContentHeight(); 
 	$.mobile.ajaxFormsEnabled = false;
 });  
-$(document).on("pageinit","#mapview",function(event){
+$(document).bind("pageload","#mapview",function(event){
 	console.log("map view exec");
 	var map= new ol.Map({
 		view: new ol.View({
@@ -27,6 +32,8 @@ $(document).on("pageinit","#mapview",function(event){
 		],
 		target: 'map'
 	});
+	
+	map.updateSize();
 });  	
 var init = function(){
 	

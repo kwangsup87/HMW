@@ -24,7 +24,7 @@ public class UserServiceImp implements UserService {
 	}
 	
 	@Override
-	public boolean login(String userId, String password) {
+	public User login(String userId, String password) {
 		// TODO Auto-generated method stub
 		return userdao.login(userId, password);
 	}
