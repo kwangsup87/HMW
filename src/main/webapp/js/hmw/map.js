@@ -3,6 +3,8 @@ var Map = {};
 	Map.minResolution = null;
 	Map.layers = {};
 	
+	Map.deviceOrientation = null;
+	Map.windowOrientation = undefined;
 	
 Map.createMap = function(){
 	Map.map = new ol.Map({
@@ -28,4 +30,23 @@ Map.createMap = function(){
 		}
 	});
 
+};
+
+Map.adjustedHeading = function(heading) {
+	if (Map.windowOrientation != undefined) {
+		// include window orientation (0, 90, -90 or 180)
+		heading -= Map.windowOrientation * Math.PI / 180.0;
+	}
+	return heading;
+};
+
+Map.setRotation = function(rotation) {
+	Map.map.getView().setRotation(rotation);
+};
+
+Map.setWindowOrientation = function(orientation) {
+	Map.windowOrientation = orientation;
+	if (Map.deviceOrientation != null && Map.deviceOrientation.getTracking() && Map.deviceOrientation.getHeading() != undefined) {
+		Map.setRotation(Map.adjustedHeading(-Map.deviceOrientation.getHeading()));
+	}
 };
