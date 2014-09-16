@@ -4,30 +4,33 @@
 <!DOCTYPE html>
 <html>
 <head>    
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	
-	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
  	
+	<!-- 	jQuery -->
+	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery-1.9.1.min.js"></script>
+	
+	<!-- jQuery Mobile -->
+	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery.mobile-1.3.2.min.js"></script>
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/jquery.mobile-1.3.2.css">
+	
+	<!-- eGov Mobile -->
+	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/EgovMobile-1.3.2.css">
 	
-	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery.mobile-1.3.2.min.js"></script>
-	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
-	
+	<!-- Proj4js -->
 	<script type="text/javascript" src="js/proj4js/2.2.2/proj4.js"></script>
 	<script type="text/javascript" src="js/proj4js/2.2.2/EPSG21781.js"></script>
-	<script type="text/javascript" src="js/ol3/ol.js"></script>
-	
-	
-	<script type="text/javascript" src="js/Config.js"></script>
-	<script type="text/javascript" src="js/map.js"></script>
-	<script type="text/javascript" src="js/Gui.js"></script>
-	<script type="text/javascript" src="js/eventScript.js"></script>
 
-	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">
+	
+	<!-- OpenLayers 3 -->
 	<script type="text/javascript" src="js/ol3/ol.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">  
+	
+	<script type="text/javascript" src="js/hmw/Config.js"></script>
+	<script type="text/javascript" src="js/hmw/MapSetting.js"></script>
+	<script type="text/javascript" src="js/hmw/Gui.js"></script>
+	<script type="text/javascript" src="js/hmw/EventScript.js"></script> 
 
 	<title>Map Select</title>
 </head>
@@ -39,7 +42,7 @@
 	<div data-role="content" style="padding:0; margin:0;">
 		<div id="map" style="padding:0; margin:0;"> </div>		
 	</div>
-	<div data-role="footer" data-position="fixed" class="ui-body-g center">
+	<div data-role="footer" data-position="fixed" class="ui-body-g center" data-tap-toggle="false">
 	<h4>footer</h4>
 	</div>
 </div>

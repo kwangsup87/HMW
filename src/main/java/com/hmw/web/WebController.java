@@ -15,8 +15,7 @@ import com.hmw.ums.UserService;
 public class WebController {
 	 
 	@Autowired
-	UserService ser;  
-	
+	UserService ser;   
 
 	@RequestMapping("/index.do")
 	public String indexPage(Model m){
@@ -36,14 +35,14 @@ public class WebController {
 		}
 		
 		if(result !=null || session.getAttribute("userid")!=null){
-			return "select";
+			return "mapView";
 		}
 		else return "redirect:/index.jsp";
 	}
 	
 	@RequestMapping("/join_page.do")
 	public String joinPage(Model m){
-		return "select";
+		return "join";
 	}
 	
 	@RequestMapping("/join_exe.do")

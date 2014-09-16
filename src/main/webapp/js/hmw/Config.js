@@ -35,3 +35,5 @@ Config.map.minScaleDenom = {
 	search: 10000 // jump to search results
 };
 
+//limit min zoom to this scale on the initial geolocation update (null to disable)
+Config.map.initialGeolocationMaxScale = null;

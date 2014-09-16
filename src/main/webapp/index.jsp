@@ -6,56 +6,33 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<!-- 	
-	jQuery
+ 	
+	<!-- 	jQuery -->
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery-1.9.1.min.js"></script>
 	
-	jQuery Mobile
+	<!-- jQuery Mobile -->
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/jquery.mobile-1.3.2.min.js"></script>
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/jquery.mobile-1.3.2.css">
 	
-	eGov Mobile
+	<!-- eGov Mobile -->
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/EgovMobile-1.3.2.css">
 	
-	Proj4js
+	<!-- Proj4js -->
 	<script type="text/javascript" src="js/proj4js/2.2.2/proj4.js"></script>
 	<script type="text/javascript" src="js/proj4js/2.2.2/EPSG21781.js"></script>
 	
-	OpenLayers 3
-	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">
-	<script type="text/javascript" src="js/ol3/ol.js"></script>  
-	 -->
+	<!-- OpenLayers 3 -->
+<!-- 	
+	<script type="text/javascript" src="js/ol3/ol.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">  
 	
-	<!-- jQuery -->
-    <script src="lib/jquery/jquery-1.9.1.min.js"></script>
-
-    <!-- jQuery UI for reorder layers -->
-    <script src="lib/jquery/jquery-ui-1.9.2.custom.min.js"></script>
-    <!-- Download jQuery UI Touch Punch Plugin from http://touchpunch.furf.com -->
-    <!-- is used for sortable Lists like the one for Reorder layers -->
-    <script src="lib/jquery/jquery.ui.touch-punch.min.js"></script>
-
-    <!-- jQuery Mobile -->
-    <script src="lib/jquery/jquery.mobile-1.3.1.min.js"></script>
-    <link rel="stylesheet" href="lib/jquery/jquery.mobile-1.3.1.min.css" />
-
-    <!-- Proj4js -->
-    <script src="lib/proj4js/2.2.2/proj4.js" type="text/javascript"></script>
-    <script src="lib/proj4js/2.2.2/EPSG21781.js" type="text/javascript"></script>
-
-    <!-- OpenLayers 3 -->
-    <script src="lib/ol3/ol.js"></script>
-    <link rel="stylesheet" href="lib/ol3/ol.css" />
-	<!-- 
+	 
 	<script type="text/javascript" src="js/hmw/Config.js"></script>
-	<script type="text/javascript" src="js/hmw/Map.js"></script>
+	<script type="text/javascript" src="js/hmw/MapSetting.js"></script>
 	<script type="text/javascript" src="js/hmw/Gui.js"></script>
 	<script type="text/javascript" src="js/hmw/EventScript.js"></script> 
-	  -->
-	<script src="src/config.js"></script>
-	<script src="src/map.js"></script>
-	<script src="src/gui.js"></script>
+-->
 	<title>JSP</title>
 </head>
 <body>
@@ -64,7 +41,7 @@
 		<h4>로그인</h4>
 	</div>
 	<div data-role="content">
-		<!-- <form method="post" action="login.do">
+		<form method="post" action="login.do" data-ajax="false">
 		<table style="margin-left:auto; margin-right:auto; width:100%;">
 		<tr>
 			<th>아 이 디</th>
@@ -76,13 +53,12 @@
 		</tr>
 		<tr>			
 			<td><a href="join_page.do" data-role="button" rel="external">회원가입</a></td>
-			<td><input type="submit" value="로그인"></td>
+			<td><input type="submit" value="로그인" ></td>
 		</tr>
 		</table>
-		</form>  -->
-		<div id="map"> </div>
+		</form>
 	</div>
-	<div data-role="footer" class="ui-body-g center">
+	<div data-role="footer" class="ui-body-g center"  data-position="fixed" data-tap-toggle="false">
 	<h4>footer</h4>
 	</div>
 </div> 
