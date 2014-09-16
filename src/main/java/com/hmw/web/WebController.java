@@ -43,7 +43,7 @@ public class WebController {
 	
 	@RequestMapping("/join_page.do")
 	public String joinPage(Model m){
-		return "join";
+		return "select";
 	}
 	
 	@RequestMapping("/join_exe.do")

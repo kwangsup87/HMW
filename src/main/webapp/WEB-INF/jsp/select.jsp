@@ -25,7 +25,7 @@
 	<script type="text/javascript" src="js/hmw/Gui.js"></script>
 	<script type="text/javascript" src="js/hmw/eventScript.js"></script>
 
-	<title>Map Select</title>
+	<title>Map</title>
 </head>
 <body>  
 <div data-role="page" id="mapview">

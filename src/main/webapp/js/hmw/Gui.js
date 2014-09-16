@@ -11,8 +11,8 @@ Gui.updateLayout = function(){
 	if ((content.outerHeight() + footer.outerHeight()) !== viewHeight) {
 	    contentHeight -= (content.outerHeight() - content.height() + 1);
 	    content.height(contentHeight);
-	    $("#map").width( $(window).width() );
-	    $("#map").height(contentHeight-10);
+	    $("#map").width( window.innerWidth );
+	    $("#map").height(window.innerHeight);
 	}
 };
 

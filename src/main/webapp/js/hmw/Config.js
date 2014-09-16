@@ -27,9 +27,7 @@ Config.map.viewOptions = {
 	resolutions: Config.map.scaleDenomsToResolutions(Config.map.scaleDenoms),
 	center: Config.map.init.center,
 	zoom: Config.map.init.zoom
-};
-
-
+}; 
 
 Config.map.minScaleDenom = {
 	map: 1000, // if topic.minscale is not set
