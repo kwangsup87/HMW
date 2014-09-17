@@ -10,9 +10,12 @@ var Map = {};
 Map.createMap = function(){
 	Map.map = new ol.Map({
 		layers:[
-		        new ol.layer.Tile({
+		       /* new ol.layer.Tile({
 		        	source: new ol.source.MapQuest({layer:'osm'})
-		        })
+		        })*/
+		       new ol.layer.Tile({
+		    	   source: new ol.source.OSM()
+		       })
 		        ],
 		target: 'map',
 		view : new ol.View(Config.map.viewOptions)
@@ -21,7 +24,7 @@ Map.createMap = function(){
 		controls:[]
 		*/
 	});
-	
+	console.log(Map.map.view.getProjection());
 	Map.map.getView().on('change:rotation',function(){
 		$.event.trigger({type:'maprotation',rotation:Map.map.getView().getRotation()});
 	});
@@ -74,6 +77,17 @@ Map.scaleDenomToResolution = function(scaleDenom, closest) {
 /**
  * GeoLocation
  */
+/*
+Map.centerOnLocation = function(){
+	Map.geolocation = new ol.Geolocation({
+		projection:	Config.map.projection.getProjection()
+	});
+	Map.map.getView().setCenter(Map.geolocation.getPosition());
+	
+};
+*/
+
+/*
 Map.initialCenterOnLocation = function(){
 	Map.centerOnLocation();
 	if (Config.map.initialGeolocationMaxScale != null) {
@@ -105,15 +119,7 @@ Map.toggleTracking = function(enabled) {
 			if (error.code == error.PERMISSION_DENIED) {
 				alert(I18n.geolocation.permissionDeniedMessage);
 		    };
-		}); 
-	    // add geolocation marker
-	/*var marker = new ol.Overlay({
-		element: ($('<div id="locationMarker"></div>')),
-	    positioning: 'center-center'
-	});
-	Map.map.addOverlay(marker);
-		marker.bindTo('position', Map.geolocation);
-	}*/
+		});  
 
 		//Map.geolocation.setTracking(enabled);
 		//$('#locationMarker').toggle(enabled);
@@ -135,3 +141,4 @@ Map.toggleFollowing = function(enabled) {
 	    }
 	  }
 };
+*/

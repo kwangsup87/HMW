@@ -31,7 +31,7 @@ Gui.initViewer = function(){
 	});
 	
 	Map.createMap();
-
+//	Map.centerOnLocation();
 	
 	Gui.updateLayout();
 };
@@ -39,6 +39,8 @@ Gui.initViewer = function(){
 $(document).ready(function(e){
 	Gui.initViewer();
 	//$.mobile.ajaxFormsEnabled = false;
-	Map.toggleTracking(Gui.tracking);
-	Map.toggleFollowing(Gui.tracking);
+	//Map.toggleTracking(Gui.tracking);
+	//Map.toggleFollowing(Gui.tracking);
+	//Map.geolocation();
+	
 });

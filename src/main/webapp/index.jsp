@@ -17,22 +17,7 @@
 	<!-- eGov Mobile -->
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/EgovMobile-1.3.2.css">
-	
-	<!-- Proj4js -->
-	<script type="text/javascript" src="js/proj4js/2.2.2/proj4.js"></script>
-	<script type="text/javascript" src="js/proj4js/2.2.2/EPSG21781.js"></script>
-	
-	<!-- OpenLayers 3 -->
-<!-- 	
-	<script type="text/javascript" src="js/ol3/ol.js"></script>
-	<link type="text/css" rel="stylesheet" href="css/ol3/ol.css">  
-	
 	 
-	<script type="text/javascript" src="js/hmw/Config.js"></script>
-	<script type="text/javascript" src="js/hmw/MapSetting.js"></script>
-	<script type="text/javascript" src="js/hmw/Gui.js"></script>
-	<script type="text/javascript" src="js/hmw/EventScript.js"></script> 
--->
 	<title>JSP</title>
 </head>
 <body>
