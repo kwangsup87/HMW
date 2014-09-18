@@ -20,6 +20,7 @@ Gui.updateLayout = function(){
   
 };
 
+//Projection : EPSG:3857
 Gui.initViewer = function(){
 	Gui.updateLayout();
 	$(window).on('resize',function(){
@@ -31,16 +32,17 @@ Gui.initViewer = function(){
 	});
 	
 	Map.createMap();
-//	Map.centerOnLocation();
+	Map.centerOnLocation();
+	
+	Map.geolocation.once('change:position',function(){
+		Map.map.getView().setCenter(Map.geolocation.getPosition());
+	});
 	
 	Gui.updateLayout();
 };
 
 $(document).ready(function(e){
-	Gui.initViewer();
-	//$.mobile.ajaxFormsEnabled = false;
-	//Map.toggleTracking(Gui.tracking);
-	//Map.toggleFollowing(Gui.tracking);
-	//Map.geolocation();
+	Gui.initViewer(); 
+	
 	
 });

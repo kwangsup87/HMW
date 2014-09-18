@@ -9,22 +9,14 @@ var Map = {};
 	
 Map.createMap = function(){
 	Map.map = new ol.Map({
-		layers:[
-		       /* new ol.layer.Tile({
-		        	source: new ol.source.MapQuest({layer:'osm'})
-		        })*/
+		layers:[ 
 		       new ol.layer.Tile({
 		    	   source: new ol.source.OSM()
 		       })
 		        ],
 		target: 'map',
-		view : new ol.View(Config.map.viewOptions)
-	
-		/*,
-		controls:[]
-		*/
-	});
-	console.log(Map.map.view.getProjection());
+		view : new ol.View(Config.map.viewOptions) 
+	}); 
 	Map.map.getView().on('change:rotation',function(){
 		$.event.trigger({type:'maprotation',rotation:Map.map.getView().getRotation()});
 	});
@@ -33,7 +25,6 @@ Map.createMap = function(){
 			Map.map.getView().setResolution(Map.minResolution);
 		}
 	});
-
 };
 
 Map.adjustedHeading = function(heading) {
@@ -74,71 +65,16 @@ Map.scaleDenomToResolution = function(scaleDenom, closest) {
 	  return res;
 	}
 };
+
+
 /**
  * GeoLocation
  */
-/*
 Map.centerOnLocation = function(){
 	Map.geolocation = new ol.Geolocation({
-		projection:	Config.map.projection.getProjection()
-	});
-	Map.map.getView().setCenter(Map.geolocation.getPosition());
+		projection:	Map.map.getView().getProjection(),
+		tracking : true
+	});  
 	
 };
-*/
-
-/*
-Map.initialCenterOnLocation = function(){
-	Map.centerOnLocation();
-	if (Config.map.initialGeolocationMaxScale != null) {
-		var maxRes = Map.scaleDenomToResolution(Config.map.initialGeolocationMaxScale, true);
-		if (Map.map.getView().getResolution() > maxRes) {
-			Map.map.getView().setResolution(maxRes);
-	    }
-	}
-	// disable after first update
-	Map.geolocation.un('change:position', Map.initialCenterOnLocation);
-};
-
-Map.centerOnLocation = function() { 
-	console.log(Map.geolocation.getPosition());
-	Map.map.getView().setCenter(Map.geolocation.getPosition());
-	Map.clampToScale(Config.map.minScaleDenom.geolocation);
-}; 
-
-Map.toggleTracking = function(enabled) {
-	if (Map.geolocation == null) {// create geolocation
-		Map.geolocation = new ol.Geolocation({
-		    trackingOptions: {
-		    	enableHighAccuracy: true
-		    }
-	    });
-		Map.geolocation.bindTo('projection', Map.map.getView());
-		
-		Map.geolocation.on('error', function(error) {
-			if (error.code == error.PERMISSION_DENIED) {
-				alert(I18n.geolocation.permissionDeniedMessage);
-		    };
-		});  
-
-		//Map.geolocation.setTracking(enabled);
-		//$('#locationMarker').toggle(enabled);
-
-		if (enabled) {
-		  // always jump to first geolocation
-			Map.geolocation.on('change:position', Map.initialCenterOnLocation);
-		}
-	}
-};
-
-Map.toggleFollowing = function(enabled) { 
-	  if (Map.geolocation != null) {
-	    if (enabled) {
-	      Map.geolocation.on('change:position', Map.centerOnLocation);
-	    }
-	    else {
-	      Map.geolocation.un('change:position', Map.centerOnLocation);
-	    }
-	  }
-};
-*/
+ 

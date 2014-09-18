@@ -9,8 +9,9 @@ Config.map.scaleDenoms =
 
 Config.map.init = {
 		//center:[37.487496, 126.924414],
+		//center:[14135122.851044077,4518371.4253939865],
 		center:[0,0],
-		zoom: 0
+		zoom: 10
 };
 
 //Config.map.projection = ol.proj.get('EPSG:4326');
