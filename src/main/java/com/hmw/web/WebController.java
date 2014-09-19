@@ -1,10 +1,13 @@
 package com.hmw.web;
  
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hmw.ums.User;
@@ -23,9 +26,18 @@ public class WebController {
 	}
 	
 	@RequestMapping("/login.do")
-	public String map(String userId, String passwd, HttpSession session, Model m){
+	public String map(String userId, String passwd, HttpSession session, Model m, 
+			HttpServletRequest request,HttpServletResponse response){
 		User result=null;
 		System.out.println(session.getAttribute("userid")+" test");
+		
+		String origin = request.getHeader("Origin");
+		if(StringUtils.hasLength(origin)){
+			response.setHeader("Access-Control-Allow-Origin", origin);
+			response.setHeader("Access-Control-Allow-Credentials", "true");
+			System.out.println(response.toString());
+		}
+		
 		
 		if(session.getAttribute("userid") ==null){
 			result = ser.login(userId, passwd);

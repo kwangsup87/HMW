@@ -7,11 +7,37 @@ var Map = {};
 	Map.windowOrientation = undefined;
 	Map.geolocation = null;
 	
+var vectorSource = new ol.source.ServerVector({
+	format: new ol.format.GeoJSON(),
+	loader:function(extent, resolution, projection){
+		var url = 'http://113.198.80.60:8080/geoserver/wfs?'+
+				'service=wfs&'+
+				'version=1.1.0&'+
+				'request=GetFeature&'+
+				'typeName=test:Seoul_Dong_WGS84_Lat';
+		$.ajax({
+			url:url,
+			headers: { 'Access-Control-Allow-Origin':'*'},
+			crossDomain:true,
+			dataType:'gml'
+		});
+	}
+});
+	
 Map.createMap = function(){
 	Map.map = new ol.Map({
 		layers:[ 
 		       new ol.layer.Tile({
 		    	   source: new ol.source.OSM()
+		       }),
+		       new ol.layer.Vector({
+		    	   source: vectorSource,
+		    	   style: new ol.style.Style({
+		    		   stroke: new ol.style.Stroke({
+		    			   color:'rgba(0,0,255,1.0)',
+		    			   width:2
+		    		   })
+		    	   })
 		       })
 		        ],
 		target: 'map',
