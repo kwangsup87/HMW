@@ -10,20 +10,27 @@ var Map = {};
 var vectorSource = new ol.source.ServerVector({
 	format: new ol.format.GeoJSON(),
 	loader:function(extent, resolution, projection){
-		var url = 'http://113.198.80.60:8080/geoserver/wfs?'+
+		var url = 'http://127.0.0.1/geoserver/wfs?'+
 				'service=wfs&'+
 				'version=1.1.0&'+
 				'request=GetFeature&'+
-				'typeName=test:Seoul_Dong_WGS84_Lat';
+				'typeName=test:Seoul_Dong_WGS84_Lat&'+
+				'format_options=callback:loadFeatures&'+
+		        'srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857';	
+				;
 		$.ajax({
-			url:url,
-			headers: { 'Access-Control-Allow-Origin':'*'},
-			crossDomain:true,
-			dataType:'gml'
+			url:url,  
+			dataType:'jsonp'
 		});
-	}
+	},
+	projection: 'EPSG:3857'
 });
-	
+
+var loadFeatures = function(response) {
+	console.log("Gegege");
+	  vectorSource.addFeatures(vectorSource.readFeatures(response));
+};
+
 Map.createMap = function(){
 	Map.map = new ol.Map({
 		layers:[ 
