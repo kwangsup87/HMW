@@ -15,6 +15,7 @@ Config.map.init = {
 };
 
 Config.map.projection = ol.proj.get('EPSG:3857');
+//Config.map.projection = 'EPSG:4326';
 //projection = 'EPSG:4326' '3857' '5178';
 //Config.map.projection.setExtent(Config.map.extent);
 

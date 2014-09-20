@@ -8,73 +8,45 @@ var Map = {};
 	Map.windowOrientation = undefined;
 	Map.geolocation = null;
 
-var loadFeatures = function(response) {
-	console.log("loadfeatures");
-  vectorSource.addFeatures(vectorSource.readFeatures(response));
-};	 	 
-	
 var vectorSource = new ol.source.ServerVector({
 	  format: new ol.format.GeoJSON(),
 	  loader: function(extent, resolution, projection) { 
-	    var url = 'http://113.198.80.60:8080/geoserver/wfs?service=WFS&' +
-	        'version=1.1.0&request=GetFeature&typename=korea:Seoul_Dong_web&' +
-	    	//'version=1.1.0&request=GetFeature&typename=sf:streams&' +
-	        'format_options=callback:loadFeatures' +
-	        //'format_options=callback:loadFeatures&outputFormat=application/json'+
+	    var url = 'http://192.168.0.9/geoserver/wfs?service=WFS&' +
+	        'version=1.1.0&request=GetFeature&' +
+	    	'typeNames=korea:Seoul_Dong_WGS84_Lat&' +
+	        'outputFormat=application/json' +
 	        '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857';
 	    $.ajax({
 	      url: url,
-	      dataType: 'jsonp'
+	      dataType: 'json',
+	      success: loadFeatures
 	    });
 	  },
 	  strategy: ol.loadingstrategy.createTile(new ol.tilegrid.XYZ({
 	    maxZoom: 19
 	  })),
 	  projection: 'EPSG:3857'
-	});
+	}); 
 
-/*
-var styleFunction = function(feature, resolution) {
-	  // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
-	  // standards-violating <magnitude> tag in each Placemark.  We extract it from
-	  // the Placemark's name instead.
-	  var name = feature.get('name');
-	  var magnitude = parseFloat(name.substr(2));
-	  var radius = 5 + 20 * (magnitude - 5);
-	  var style = styleCache[radius];
-	  if (!style) {
-	    style = [new ol.style.Style({
-	      image: new ol.style.Circle({
-	        radius: radius,
-	        fill: new ol.style.Fill({
-	          color: 'rgba(255, 153, 0, 0.4)'
-	        }),
-	        stroke: new ol.style.Stroke({
-	          color: 'rgba(255, 204, 0, 0.2)',
-	          width: 1
-	        })
-	      })
-	    })];
-	    styleCache[radius] = style;
-	  }
-	  return style;
-};
-
+var loadFeatures = function(response) { 
+  vectorSource.addFeatures(vectorSource.readFeatures(response));
+};	 	 
+	 
 var vector = new ol.layer.Vector({
-		  source: new ol.source.KML({ 
-		    projection: ol.proj.get('EPSG:5178'),
-		    url: 'korea-Seoul_Dong.kml'
-		  }) 
-	});
-	*/
-Map.createMap = function(){
+		  source: new ol.source.GeoJSON({  
+			projection: 'EPSG:3857',
+		    url: 'geoserver-GetFeature.json'
+		  })
+}); 
+
+Map.createMap = function(){ 
 	Map.map = new ol.Map({
 		layers:[ 
 		       new ol.layer.Tile({
 		    	   source: new ol.source.OSM()
 		       }),/*vector*/
 		       new ol.layer.Vector({
-		    	   source: vectorSource,
+		    	   source: vectorSource, 
 		    	   style: new ol.style.Style({
 		    		   stroke: new ol.style.Stroke({
 		    			   color:'rgba(0,0,255,1.0)',
