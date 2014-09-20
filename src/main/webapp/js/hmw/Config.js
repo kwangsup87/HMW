@@ -14,8 +14,8 @@ Config.map.init = {
 		zoom: 10
 };
 
-//Config.map.projection = ol.proj.get('EPSG:4326');
-//Config.map.projection = 'EPSG:4326';
+Config.map.projection = ol.proj.get('EPSG:3857');
+//projection = 'EPSG:4326' '3857' '5178';
 //Config.map.projection.setExtent(Config.map.extent);
 
 Config.map.scaleDenomsToResolutions = function(scales) {
@@ -26,7 +26,7 @@ Config.map.scaleDenomsToResolutions = function(scales) {
 };
 
 Config.map.viewOptions = {
-//	projection: Config.map.projection,
+	projection: Config.map.projection,
 //	resolutions: Config.map.scaleDenomsToResolutions(Config.map.scaleDenoms),
 	center: Config.map.init.center,
 	zoom: Config.map.init.zoom

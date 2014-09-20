@@ -38,11 +38,16 @@ Gui.initViewer = function(){
 		Map.map.getView().setCenter(Map.geolocation.getPosition());
 	});
 	
+	$('#map').bind('tap',function(e){
+		console.log(e);
+	});
+	
+	console.log(ol.proj.get('EPSG:5178'));
+	
+	
 	Gui.updateLayout();
 };
 
 $(document).ready(function(e){
-	Gui.initViewer(); 
-	
-	
+	Gui.initViewer();  
 });

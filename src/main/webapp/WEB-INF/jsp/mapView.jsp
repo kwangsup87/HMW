@@ -20,7 +20,7 @@
 	
 	<!-- Proj4js -->
 	<script type="text/javascript" src="js/proj4js/2.2.2/proj4.js"></script>
-	<script type="text/javascript" src="js/proj4js/2.2.2/EPSG21781.js"></script>
+	<script type="text/javascript" src="js/proj4js/2.2.2/EPSGdefs.js"></script> 
 
 	
 	<!-- OpenLayers 3 -->
