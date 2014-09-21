@@ -20,9 +20,10 @@ Gui.updateLayout = function(){
   
 };
 
-//Projection : EPSG:3857
+//Default Projection : EPSG:3857
 Gui.initViewer = function(){
 	Gui.updateLayout();
+	
 	$(window).on('resize',function(){
 		Gui.updateLayout();
 	});
@@ -31,18 +32,25 @@ Gui.initViewer = function(){
 	    Map.setWindowOrientation(window.orientation);
 	});
 	
+	
 	Map.createMap();
 	Map.centerOnLocation();
+	//layers.getJSONfromServer();
 	
+	/**
+	 * Geolocation Event(Set Center)
+	 **/
 	Map.geolocation.once('change:position',function(){
 		Map.map.getView().setCenter(Map.geolocation.getPosition());
 	});
 	
-	$('#map').bind('tap',function(e){
-		console.log(e);
+	/**
+	 * Layers Event
+	 **/
+	$(Map.map.getViewport()).bind('tap',function(evt){
+		var pixel = Map.map.getEventPixel(evt.originalEvent);
+		layers.displayFeatureInfo(pixel);
 	});
-	
-	console.log(ol.proj.get('EPSG:5178'));
 	
 	
 	Gui.updateLayout();

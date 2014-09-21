@@ -8,52 +8,22 @@ var Map = {};
 	Map.windowOrientation = undefined;
 	Map.geolocation = null;
 
-var vectorSource = new ol.source.ServerVector({
-	  format: new ol.format.GeoJSON(),
-	  loader: function(extent, resolution, projection) { 
-	    var url = 'http://192.168.0.9/geoserver/wfs?service=WFS&' +
-	        'version=1.1.0&request=GetFeature&' +
-	    	'typeNames=korea:Seoul_Dong_WGS84_Lat&' +
-	        'outputFormat=application/json' +
-	        '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857';
-	    $.ajax({
-	      url: url,
-	      dataType: 'json',
-	      success: loadFeatures
-	    });
-	  },
-	  strategy: ol.loadingstrategy.createTile(new ol.tilegrid.XYZ({
-	    maxZoom: 19
-	  })),
-	  projection: 'EPSG:3857'
-	}); 
-
-var loadFeatures = function(response) { 
-  vectorSource.addFeatures(vectorSource.readFeatures(response));
-};	 	 
-	 
-var vector = new ol.layer.Vector({
-		  source: new ol.source.GeoJSON({  
-			projection: 'EPSG:3857',
-		    url: 'geoserver-GetFeature.json'
-		  })
-}); 
-
 Map.createMap = function(){ 
 	Map.map = new ol.Map({
 		layers:[ 
 		       new ol.layer.Tile({
 		    	   source: new ol.source.OSM()
-		       }),/*vector*/
+		       }),
 		       new ol.layer.Vector({
-		    	   source: vectorSource, 
+		    	   source: layers.vectorSource, 
 		    	   style: new ol.style.Style({
 		    		   stroke: new ol.style.Stroke({
 		    			   color:'rgba(0,0,255,1.0)',
 		    			   width:2
 		    		   })
 		    	   })
-		       }) 
+		       })
+		       /*vector*/
 		        ],  
 		target: 'map',
 		view : new ol.View(Config.map.viewOptions) 
@@ -85,9 +55,7 @@ Map.setWindowOrientation = function(orientation) {
 	if (Map.deviceOrientation != null && Map.deviceOrientation.getTracking() && Map.deviceOrientation.getHeading() != undefined) {
 		Map.setRotation(Map.adjustedHeading(-Map.deviceOrientation.getHeading()));
 	}
-};
-
-
+}; 
 //adjust max zoom
 Map.clampToScale = function(scaleDenom) {
 	var minRes = Map.scaleDenomToResolution(scaleDenom, true);
@@ -105,8 +73,7 @@ Map.scaleDenomToResolution = function(scaleDenom, closest) {
 	else {
 	  return res;
 	}
-};
-
+}; 
 
 /**
  * GeoLocation
