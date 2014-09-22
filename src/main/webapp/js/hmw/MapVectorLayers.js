@@ -1,34 +1,57 @@
-var layers = {};
-	layers.vectorSource = null;
-
- layers.vectorSource = new ol.source.ServerVector({
-		  format: new ol.format.GeoJSON(),
-		  loader: function(extent, resolution, projection) { 
-		    var url = 'http://113.198.80.60:8080/geoserver/wfs?service=WFS&' +
-		        'version=1.1.0&request=GetFeature&' +
-		    	'typeNames=korea:Seoul_Dong_trans&' +
-		        'outputFormat=application/json' +
-		        '&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857';
-		    $.ajax({
-		      url: url,
-		      dataType: 'json',
-		      success: loadFeatures
-		    });
-		  },
-		  strategy: ol.loadingstrategy.createTile(new ol.tilegrid.XYZ({
-		    maxZoom: 19
-		  })),
-		  projection: 'EPSG:3857'
-	});	
+var Layer = {};
+var	LayerSources =null;
+	Layer.vectorSource = null;
 	
 
-	var loadFeatures = function(response) { 
-		layers.vectorSource.addFeatures(layers.vectorSource.readFeatures(response));
-	}; 
-	 	
+Layer.init = function(){
+	LayerSources = Map.map.getLayers();
+	console.log(LayerSources);
+};
+	
+Layer.createLayer = function(data,color,width){
+	Layer.vectorSource = new ol.source.ServerVector({
+		format: new ol.format.GeoJSON(),
+		loader: function(extent, resolution, projection){
+			console.log('Loading Data: '+data);
+			var url = 'http://113.198.80.60:8080/geoserver/wfs?service=WFS&' +
+			'version=1.1.0&request=GetFeature&' +
+			'typeNames=korea:'+data+
+			'&outputFormat=application/json' +
+			'&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857';
+			$.ajax({
+				url: url,
+				dataType: 'json',
+				success:loadFeatures 
+			});
+		},
+		strategy: ol.loadingstrategy.createTile(new ol.tilegrid.XYZ({
+			maxZoom: 19
+		})),
+		projection: 'EPSG:3857'
+	});
 
-	 
-layers.displayFeatureInfo = function(pixel){
+	loadFeatures = function(response){
+		Layer.vectorSource.addFeatures(Layer.vectorSource.readFeatures(response)); 
+	};
+	
+	var temp = new ol.layer.Vector({
+    	title:data,
+ 	   	source: Layer.vectorSource,
+ 	   	style: new ol.style.Style({
+ 		   stroke: new ol.style.Stroke({
+ 			   color:color,
+ 			   width:width
+ 		   })
+ 	   })
+    });
+    Map.map.addLayer(temp);
+};
+/*
+Layer.register = function(title,color,width){
+    
+};
+*/
+Layer.displayFeatureInfo = function(pixel){
 	var feature = Map.map.forEachFeatureAtPixel(pixel, function(feature, layer){
 		return feature;
 	});
@@ -41,7 +64,6 @@ layers.displayFeatureInfo = function(pixel){
 	}
 		
 };
-
 
 
 /**

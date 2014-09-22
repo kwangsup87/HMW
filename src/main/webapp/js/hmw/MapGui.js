@@ -30,12 +30,17 @@ Gui.initViewer = function(){
 	
 	$(window).on('orientationchange', function(e) {
 	    Map.setWindowOrientation(window.orientation);
-	});
+	}); 
+	
+	
 	
 	
 	Map.createMap();
-	Map.centerOnLocation();
-	//layers.getJSONfromServer();
+	Map.centerOnLocation(); 
+	Layer.createLayer('Seoul_dong','rgba(0,0,255,1.0)',2);
+	//Layer.register('Seoul_dong','rgba(0,0,255,1.0)',2);
+	Layer.createLayer('Incheon_dong','rgba(255,0,255,1.0)',2);
+	//Layer.register('Incheon_dong','rgba(255,0,255,1.0)',2);
 	
 	/**
 	 * Geolocation Event(Set Center)
@@ -49,7 +54,7 @@ Gui.initViewer = function(){
 	 **/
 	$(Map.map.getViewport()).bind('tap',function(evt){
 		var pixel = Map.map.getEventPixel(evt.originalEvent);
-		layers.displayFeatureInfo(pixel);
+		Layer.displayFeatureInfo(pixel);
 	});
 	
 	

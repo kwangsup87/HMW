@@ -9,22 +9,11 @@ var Map = {};
 	Map.geolocation = null;
 
 Map.createMap = function(){ 
+	
 	Map.map = new ol.Map({
-		layers:[ 
-		       new ol.layer.Tile({
+		layers:[new ol.layer.Tile({
 		    	   source: new ol.source.OSM()
-		       }),
-		       new ol.layer.Vector({
-		    	   source: layers.vectorSource, 
-		    	   style: new ol.style.Style({
-		    		   stroke: new ol.style.Stroke({
-		    			   color:'rgba(0,0,255,1.0)',
-		    			   width:2
-		    		   })
-		    	   })
-		       })
-		       /*vector*/
-		        ],  
+		       })],  
 		target: 'map',
 		view : new ol.View(Config.map.viewOptions) 
 	}); 
@@ -74,18 +63,13 @@ Map.scaleDenomToResolution = function(scaleDenom, closest) {
 	  return res;
 	}
 }; 
-
 /**
  * GeoLocation
  */
-Map.centerOnLocation = function(){
-
-	console.log(Map.map.getView().getProjection());
-	
+Map.centerOnLocation = function(){	
 	Map.geolocation = new ol.Geolocation({
 		projection:	Map.map.getView().getProjection(),
 		tracking : true
-	});  
-	
+	});  	
 };
  
