@@ -30,17 +30,10 @@ Gui.initViewer = function(){
 	
 	$(window).on('orientationchange', function(e) {
 	    Map.setWindowOrientation(window.orientation);
-	}); 
-	
-	
-	
+	});   
 	
 	Map.createMap();
-	Map.centerOnLocation(); 
-	Layer.createLayer('Seoul_dong','rgba(0,0,255,1.0)',2);
-	//Layer.register('Seoul_dong','rgba(0,0,255,1.0)',2);
-	Layer.createLayer('Incheon_dong','rgba(255,0,255,1.0)',2);
-	//Layer.register('Incheon_dong','rgba(255,0,255,1.0)',2);
+	Map.centerOnLocation();  
 	
 	/**
 	 * Geolocation Event(Set Center)

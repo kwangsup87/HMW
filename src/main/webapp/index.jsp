@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="js/egovframework/mbl/cmm/EgovMobile-1.3.2.js"></script>
 	<link rel="stylesheet" href="css/egovframework/mbl/cmm/EgovMobile-1.3.2.css">
 	 
-	<title>JSP</title>
+	<title>모바일공간정보시각화서비스</title>
 </head>
 <body>
  <div data-role="page" id="mainpage">

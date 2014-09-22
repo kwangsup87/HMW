@@ -38,24 +38,16 @@
 <body>
 
 
-<div data-role="page" id="mapview">
-	
+<div data-role="page" id="mapview"> 
 	<div data-role="panel" data-display="overlay" id="layerList" style="padding:0;">
 			<ul data-role="listview">
 				<li data-theme="g" data-icon="delete" style="height: 2.8em;"><a href="#" data-rel="close" style="color:rgb(255, 255, 255);">Close menu</a></li>
-				<li data-theme="z" data-role="list-divider">1</li>
-				<li><a href="#">데이터 1</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li>
-				<li><a href="#">데이터 2</a></li> 
+				<li data-theme="z" data-role="list-divider">기본 제공 데이터</li>
+				<li><a href="#" id="Seoul_dong" onclick="spatialButtonEvent(this)">서울특별시</a></li>
+				<li><a href="#" id="Incheon_dong" onclick="spatialButtonEvent(this)">인천광역시</a></li>
+				<li><a href="#" id="Gyeonggi_dong" onclick="spatialButtonEvent(this)">경기도</a></li>
+				<li><a href="#" id="Sejong_dong" onclick="spatialButtonEvent(this)">세종시</a></li>
+				<li data-theme="z" data-role="list-divider">사용자 업로드 데이터</li> 
 			</ul>
 	</div>  
 	<div data-role="panel" data-display="overlay" id="opendataList" style="padding:0;">
@@ -85,7 +77,7 @@
 	<div data-role="header" class="ui-body-g center" data-position="inline" > 
  	 	<a href="#select" data-role="button" data-rel="popup"  data-transition="slidedown" data-theme="g">데이터 목록</a> 
 		<h4>기본 지도 시각화(OpenStreetMap)</h4>
-		<a href="#" data-role="button" data-theme="g" >로그아웃</a>
+		<a href="logout.do" data-role="button" data-theme="g" >로그아웃</a>
 	</div>	
 	<div data-role="content" style="padding:0; margin:0;">
 		<div id="map" style="padding:0; margin:0;">

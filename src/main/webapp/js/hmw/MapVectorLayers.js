@@ -2,18 +2,16 @@ var Layer = {};
 var	LayerSources =null;
 	Layer.vectorSource = null;
 	
-
-Layer.init = function(){
-	LayerSources = Map.map.getLayers();
-	console.log(LayerSources);
-};
-	
+//레이어 시각화, 공공데이터..., 배경지도...(Vworld, Naver, Daum)
+//Postgresql 연동...  리스트 자동화??
+//192.168.0.9
+//113.198.80.60:8080
 Layer.createLayer = function(data,color,width){
 	Layer.vectorSource = new ol.source.ServerVector({
 		format: new ol.format.GeoJSON(),
 		loader: function(extent, resolution, projection){
 			console.log('Loading Data: '+data);
-			var url = 'http://113.198.80.60:8080/geoserver/wfs?service=WFS&' +
+			var url = 'http://192.168.0.9/geoserver/wfs?service=WFS&' +
 			'version=1.1.0&request=GetFeature&' +
 			'typeNames=korea:'+data+
 			'&outputFormat=application/json' +
@@ -28,13 +26,12 @@ Layer.createLayer = function(data,color,width){
 			maxZoom: 19
 		})),
 		projection: 'EPSG:3857'
-	});
-
+	}); 
 	loadFeatures = function(response){
 		Layer.vectorSource.addFeatures(Layer.vectorSource.readFeatures(response)); 
 	};
 	
-	var temp = new ol.layer.Vector({
+	var vectorTemp = new ol.layer.Vector({
     	title:data,
  	   	source: Layer.vectorSource,
  	   	style: new ol.style.Style({
@@ -44,13 +41,12 @@ Layer.createLayer = function(data,color,width){
  		   })
  	   })
     });
-    Map.map.addLayer(temp);
+    Map.map.addLayer(vectorTemp);
 };
-/*
-Layer.register = function(title,color,width){
-    
+Layer.removeLayer = function(data){
+	Map.map.removeLayer(data);
 };
-*/
+
 Layer.displayFeatureInfo = function(pixel){
 	var feature = Map.map.forEachFeatureAtPixel(pixel, function(feature, layer){
 		return feature;
@@ -61,8 +57,7 @@ Layer.displayFeatureInfo = function(pixel){
 	}		
 	else{
 		
-	}
-		
+	}	
 };
 
 

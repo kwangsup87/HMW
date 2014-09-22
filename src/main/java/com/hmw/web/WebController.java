@@ -24,12 +24,18 @@ public class WebController {
 	public String indexPage(Model m){
 		return "redirect:/index.jsp";
 	}
-	
+
+	@RequestMapping("/logout.do")
+	public String logOut(Model m, HttpSession session){
+		System.out.println(session.getAttribute("userid")+"-> userId");
+		session.removeAttribute("userid");
+		return "redirect:/index.jsp";
+	}
 	@RequestMapping("/login.do")
 	public String map(String userId, String passwd, HttpSession session, Model m, 
 			HttpServletRequest request,HttpServletResponse response){
 		User result=null;
-		System.out.println(session.getAttribute("userid")+" test");
+		System.out.println(session.getAttribute("userid")+"-> userId");
 		
 		String origin = request.getHeader("Origin");
 		if(StringUtils.hasLength(origin)){
@@ -56,7 +62,6 @@ public class WebController {
 	public String joinPage(Model m){
 		return "join";
 	}
-	
 	@RequestMapping("/join_exe.do")
 	public String joinExec(User u, Model m){
 		System.out.println("Controller:"+u.toString());

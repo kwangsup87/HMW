@@ -12,6 +12,7 @@ Map.createMap = function(){
 	
 	Map.map = new ol.Map({
 		layers:[new ol.layer.Tile({
+					title: 'basemap',
 		    	   source: new ol.source.OSM()
 		       })],  
 		target: 'map',
