@@ -1,9 +1,7 @@
 var Layer = {};
 var	LayerSources =null;
 	Layer.vectorSource = null;
-	
-//레이어 시각화, 공공데이터..., 배경지도...(Vworld, Naver, Daum)
-//Postgresql 연동...  리스트 자동화??
+	 
 //192.168.0.9
 //113.198.80.60:8080
 Layer.createLayer = function(data,color,width){
@@ -11,7 +9,7 @@ Layer.createLayer = function(data,color,width){
 		format: new ol.format.GeoJSON(),
 		loader: function(extent, resolution, projection){
 			console.log('Loading Data: '+data);
-			var url = 'http://192.168.0.9/geoserver/wfs?service=WFS&' +
+			var url = 'http://113.198.80.60:8080/geoserver/wfs?service=WFS&' +
 			'version=1.1.0&request=GetFeature&' +
 			'typeNames=korea:'+data+
 			'&outputFormat=application/json' +

@@ -1,5 +1,7 @@
-package com.hmw.web;
+package com.hmw.web; 
  
+ 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,7 +21,19 @@ public class WebController {
 	 
 	@Autowired
 	UserService ser;   
-
+	@RequestMapping("/test.do")
+	public String geoserverConnect(){
+		String RESTURL = "http://113.198.80.60:8080/geoserver";
+		String RESTUSER = "admin";
+		String RESTPW = "geoserver";
+		
+	//	GeoServerRESTPublisher publisher = new GeoServerRESTPublisher(RESTURL, RESTUSER, RESTPW);
+	//	boolean created = publisher.createWorkspace("myWorkspace");
+		
+	//	System.out.println(created);
+		
+		return "mapView"; 
+	} 
 	@RequestMapping("/index.do")
 	public String indexPage(Model m){
 		return "redirect:/index.jsp";
