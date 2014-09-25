@@ -43,12 +43,12 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository> 
-		<!-- 
+		
 		<repository>
 			<id>GeoSolutions</id>
 			<url>http://maven.geo-solutions.it</url>
 		</repository>
-		  -->
+		  
 	</repositories>
 
 	<dependencies>
@@ -116,12 +116,12 @@
 			<artifactId>antlr</artifactId>
 			<version>3.5</version>
 		</dependency>  
-		<!-- 
+		
 		<dependency>
 			<groupId>it.geosolutions</groupId>
    			<artifactId>geoserver-manager</artifactId>
-			<version>1.5.2</version>
-		</dependency>  -->
+			<version>1.6.0</version>
+		</dependency>  
 		
 	</dependencies>
 

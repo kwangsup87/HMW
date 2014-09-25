@@ -2,6 +2,8 @@ package com.hmw.web;
  
  
 
+import it.geosolutions.geoserver.rest.GeoServerRESTPublisher;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,17 +24,17 @@ public class WebController {
 	@Autowired
 	UserService ser;   
 	@RequestMapping("/test.do")
-	public String geoserverConnect(){
+	public void geoserverConnect(){
 		String RESTURL = "http://113.198.80.60:8080/geoserver";
 		String RESTUSER = "admin";
 		String RESTPW = "geoserver";
 		
-	//	GeoServerRESTPublisher publisher = new GeoServerRESTPublisher(RESTURL, RESTUSER, RESTPW);
-	//	boolean created = publisher.createWorkspace("myWorkspace");
+		//GeoServerRESTPublisher publisher = new GeoServerRESTPublisher(RESTURL, RESTUSER, RESTPW);
+		//boolean created = publisher.createWorkspace("myWorkspace1");
 		
-	//	System.out.println(created);
+		//System.out.println(created);
 		
-		return "mapView"; 
+		/*return "mapView";*/ 
 	} 
 	@RequestMapping("/index.do")
 	public String indexPage(Model m){
