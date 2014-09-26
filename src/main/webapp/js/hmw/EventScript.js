@@ -3,7 +3,7 @@ $( document ).on( "pageinit", function() {
 	$.mobile.loader.prototype.options.textVisible = false;
 	$.mobile.loader.prototype.options.theme = "a";
 	$.mobile.loader.prototype.options.html = "";
-});
+}); 
 
 spatialButtonEvent = function(obj){
 	var mapLayers = Map.map.getLayers(),
@@ -20,4 +20,18 @@ spatialButtonEvent = function(obj){
 		}
 	}); 
 	if(!obj_exist)	Layer.createLayer(name,'rgba('+r+','+g+','+b+',1.0)',1); 
+};
+
+workspaceCreate = function(obj){
+	console.log(obj);
+	
+	$.ajax({
+		url:'/mobile/test.do',
+		type:'POST',
+		contentType : 'application/json;charset=UTF-8',
+		success:function(msg){
+			console.log("test");
+		}
+	}); 
+	
 };
