@@ -25,14 +25,14 @@ public class WebController {
 	UserService ser;   
 	@RequestMapping("/test.do")
 	public void geoserverConnect(){
-		String RESTURL = "http://113.198.80.60:8080/geoserver";
+		String RESTURL = "http://192.168.0.9/geoserver";
 		String RESTUSER = "admin";
 		String RESTPW = "geoserver";
 		
-		//GeoServerRESTPublisher publisher = new GeoServerRESTPublisher(RESTURL, RESTUSER, RESTPW);
-		//boolean created = publisher.createWorkspace("myWorkspace1");
+		GeoServerRESTPublisher publisher = new GeoServerRESTPublisher(RESTURL, RESTUSER, RESTPW);
+		boolean created = publisher.createWorkspace("myWorkspace1");
 		
-		//System.out.println(created);
+		System.out.println(created);
 		
 		/*return "mapView";*/ 
 	} 
