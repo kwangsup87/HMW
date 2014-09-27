@@ -23,14 +23,18 @@ spatialButtonEvent = function(obj){
 };
 
 workspaceCreate = function(obj){
-	console.log(obj);
-	
+	console.log(obj); 
+	var formData = {name:'kkk'};
 	$.ajax({
-		url:'/mobile/test.do',
+		url:'test.do',
 		type:'POST',
-		contentType : 'application/json;charset=UTF-8',
+		data: formData,
+/*		contentType : "application/x-www-form-urlencoded; charset=UTF-8",*/
 		success:function(msg){
-			console.log("test");
+			alert(msg);
+		},
+		error:function(){
+			console.log("err");
 		}
 	}); 
 	
