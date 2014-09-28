@@ -48,7 +48,7 @@
 				<li><a href="#" id="Gyeonggi_dong" onclick="spatialButtonEvent(this)">경기도</a></li>
 				<li><a href="#" id="Sejong_dong" onclick="spatialButtonEvent(this)">세종시</a></li>
 				<li data-theme="z" data-role="list-divider">사용자 업로드 데이터</li>
-			 	<li><a href="#" id="test" onclick="workspaceCreate(this)">test</a></li>  
+			 	<li><a href="#" id="workspaceCreate" onclick="ajaxNetwork(this)">test</a></li>  
 			</ul>
 	</div>  
 	<div data-role="panel" data-display="overlay" id="opendataList" style="padding:0;">

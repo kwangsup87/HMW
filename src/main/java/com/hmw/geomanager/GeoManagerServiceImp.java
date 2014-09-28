@@ -14,7 +14,7 @@ public class GeoManagerServiceImp implements GeoManagerService {
 	@Override
 	public boolean createWorkspace(String name) {
 		// TODO Auto-generated method stub
-		System.out.println(name);
+		//System.out.println(name);
 		return geo_manager.geoserverCreateWorkspace(name);
 	} 
 }

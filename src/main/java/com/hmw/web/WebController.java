@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody; 
 
 import com.hmw.geomanager.GeoManagerService;
@@ -28,13 +30,14 @@ public class WebController {
 	@Autowired
 	GeoManagerService geomanager;
 	
-	
-	@RequestMapping(value="/test.do",method=RequestMethod.POST)
-	@ResponseBody
-	public boolean workspaceCreate(HttpServletRequest request){
-		
-		return geomanager.createWorkspace(request.getAttribute("name").toString());
-	//	return false;
+	//, produces="application/json;charset=UTF-8"
+	@RequestMapping(value="/workspaceCreate.do",method=RequestMethod.POST)
+	//public String workspaceCreate(@RequestParam String name){
+	//public Boolean workspaceCreate(@RequestBody String filterJSON){
+	public @ResponseBody Boolean workspaceCreate(@RequestBody String name){
+		//System.out.println(name);
+		//return geomanager.createWorkspace(name);
+		return true;
 	} 
 	
 	@RequestMapping("/index.do")

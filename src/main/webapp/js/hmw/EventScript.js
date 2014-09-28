@@ -22,19 +22,22 @@ spatialButtonEvent = function(obj){
 	if(!obj_exist)	Layer.createLayer(name,'rgba('+r+','+g+','+b+',1.0)',1); 
 };
 
-workspaceCreate = function(obj){
-	console.log(obj); 
-	var formData = {name:'kkk'};
+ajaxNetwork = function(obj){
+	console.log($(obj).attr('id')); 
+	
+	var formData = {name:'kkk11'};
 	$.ajax({
-		url:'test.do',
 		type:'POST',
-		data: formData,
-/*		contentType : "application/x-www-form-urlencoded; charset=UTF-8",*/
+		url:$(obj).attr('id')+'.do',
+//		data: JSON.stringify(formData),
+		data: "{\"name\":\"hmkcode\",\"id\":2}",
+		contentType : "application/json;charset=UTF-8",
+		dataType : 'json',
 		success:function(msg){
-			alert(msg);
+			console.log("success");
 		},
 		error:function(){
-			console.log("err");
+			console.log("err1");
 		}
 	}); 
 	
