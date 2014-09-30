@@ -31,7 +31,9 @@
 	<script type="text/javascript" src="js/hmw/MapVectorLayers.js"></script>
 	<script type="text/javascript" src="js/hmw/MapSetting.js"></script>
 	<script type="text/javascript" src="js/hmw/MapGui.js"></script>
-	<script type="text/javascript" src="js/hmw/EventScript.js"></script> 
+	<script type="text/javascript" src="js/hmw/EventScript.js"></script>
+	 
+	<script type="text/javascript" src="js/hmw/hmw.js"></script> 
 
 	<title>Map Select</title>
 </head>
@@ -43,12 +45,12 @@
 			<ul data-role="listview">
 				<li data-theme="g" data-icon="delete" style="height: 2.8em;"><a href="#" data-rel="close" style="color:rgb(255, 255, 255);">Close menu</a></li>
 				<li data-theme="z" data-role="list-divider">기본 제공 데이터</li>
-				<li><a href="#" id="Seoul_dong" onclick="spatialButtonEvent(this)">서울특별시</a></li>
-				<li><a href="#" id="Incheon_dong" onclick="spatialButtonEvent(this)">인천광역시</a></li>
-				<li><a href="#" id="Gyeonggi_dong" onclick="spatialButtonEvent(this)">경기도</a></li>
-				<li><a href="#" id="Sejong_dong" onclick="spatialButtonEvent(this)">세종시</a></li>
+				<li><a href="#" data-id="Seoul_dong" data-name="loadVector" onclick="hmw.geoServerProcess(this)">서울특별시</a></li>
+				<li><a href="#" data-id="Incheon_dong" data-name="loadVector" onclick="spatialButtonEvent(this)">인천광역시</a></li>
+				<li><a href="#" data-id="Gyeonggi_dong" data-name="loadVector" onclick="spatialButtonEvent(this)">경기도</a></li>
+				<li><a href="#" data-id="Sejong_dong" data-name="loadVector" onclick="spatialButtonEvent(this)">세종시</a></li>
 				<li data-theme="z" data-role="list-divider">사용자 업로드 데이터</li>
-			 	<li><a href="#" id="workspaceCreate" onclick="ajaxNetwork(this)">test</a></li>  
+			 	<li><a href="#" data-id="user1" data-name="createWorkspace" onclick="ajaxNetwork(this)">test</a></li>  
 			</ul>
 	</div>  
 	<div data-role="panel" data-display="overlay" id="opendataList" style="padding:0;">

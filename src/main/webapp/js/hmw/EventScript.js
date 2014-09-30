@@ -4,7 +4,7 @@ $( document ).on( "pageinit", function() {
 	$.mobile.loader.prototype.options.theme = "a";
 	$.mobile.loader.prototype.options.html = "";
 }); 
-
+/*
 spatialButtonEvent = function(obj){
 	var mapLayers = Map.map.getLayers(),
 		obj_exist=false,
@@ -21,24 +21,25 @@ spatialButtonEvent = function(obj){
 	}); 
 	if(!obj_exist)	Layer.createLayer(name,'rgba('+r+','+g+','+b+',1.0)',1); 
 };
+*/
 
+/*
 ajaxNetwork = function(obj){
 	console.log($(obj).attr('id')); 
 	
-	var formData = {name:'kkk11'};
+	var formData1 = {name:'kkk11'};
 	$.ajax({
 		type:'POST',
 		url:$(obj).attr('id')+'.do',
-//		data: JSON.stringify(formData),
-		data: "{\"name\":\"hmkcode\",\"id\":2}",
+		data: JSON.stringify(formData1), 
 		contentType : "application/json;charset=UTF-8",
 		dataType : 'json',
 		success:function(msg){
-			console.log("success");
+			console.log(msg.data);
 		},
 		error:function(){
-			console.log("err1");
+			console.log("err");
 		}
 	}); 
-	
 };
+*/

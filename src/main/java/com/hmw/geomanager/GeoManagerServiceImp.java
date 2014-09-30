@@ -1,5 +1,7 @@
 package com.hmw.geomanager;
 
+import it.geosolutions.geoserver.rest.decoder.RESTLayer;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -16,5 +18,11 @@ public class GeoManagerServiceImp implements GeoManagerService {
 		// TODO Auto-generated method stub
 		//System.out.println(name);
 		return geo_manager.geoserverCreateWorkspace(name);
+	}
+
+	@Override
+	public RESTLayer requestLoadVector(String workspace, String name) {
+		// TODO Auto-generated method stub
+		return geo_manager.geoserverLoadVector(workspace,name);
 	} 
 }
