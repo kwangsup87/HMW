@@ -1,19 +1,14 @@
 package com.hmw.web; 
  
   
- 
-import it.geosolutions.geoserver.rest.decoder.RESTLayer;
-
-import java.io.IOException;
+  
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
- 
-import org.codehaus.jackson.JsonParseException;
-import org.codehaus.jackson.map.JsonMappingException;
+  
 import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +25,7 @@ import com.hmw.util.Util;
  
 
 @Controller
-public class WebController {
+public class WebLoginController {
 	 
 	@Autowired
 	UserService ser;
@@ -38,6 +33,9 @@ public class WebController {
 	@Autowired
 	GeoManagerService geomanager;
 	 
+	
+	 
+	
 	@RequestMapping(headers="Content-Type=application/json", value="/createWorkspace.do",
 					method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> workspaceCreate(@RequestBody String JSONData){

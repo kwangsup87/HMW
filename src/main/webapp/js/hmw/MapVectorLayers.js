@@ -41,6 +41,7 @@ Layer.createLayer = function(data,color,width){
     });
     Map.map.addLayer(vectorTemp);
 };
+
 Layer.removeLayer = function(data){
 	Map.map.removeLayer(data);
 };
@@ -57,7 +58,6 @@ Layer.displayFeatureInfo = function(pixel){
 		
 	}	
 };
-
 
 /**
  * Example.. JSON...
