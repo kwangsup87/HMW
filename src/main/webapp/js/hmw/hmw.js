@@ -35,7 +35,7 @@ var cur_date = new Date();
 			break;
 		
 		}
-	//	ajaxNetwork(obj);
+		//ajaxNetwork(obj);
 	};
 	
 	hmw.publicOpenData = function(obj){
@@ -49,20 +49,19 @@ var cur_date = new Date();
 	};
 	
 	ajaxNetwork = function(obj){
-		console.log($(obj).attr('data-name')); 
+	//	console.log($(obj).attr('data-name')); 
 		var value = $(obj).attr('data-id');
 		var formData = {name:value};
-	//	var url = 'http://openapi.seoul.go.kr:8088/696e74727564657232303934/json/TimeAverageAirQuality/1/25/201402072000/';
-	//	console.log(url);
 		$.ajax({
 			type:'POST',
 			url:$(obj).attr('data-name')+'.do',
-		//	url:url,
 			data: JSON.stringify(formData), 
 			contentType : "application/json;charset=UTF-8",
 			dataType : 'json',
 			success:function(msg){
-				console.log(msg);
+				var obj= JSON.parse(msg.data);
+				console.log(obj);
+				//console.log(obj.TimeAverageAirQuality);
 			},
 			error:function(){
 				console.log("err");

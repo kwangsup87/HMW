@@ -9,13 +9,15 @@ Layer.createLayer = function(data,color,width){
 		format: new ol.format.GeoJSON(),
 		loader: function(extent, resolution, projection){
 			console.log('Loading Data: '+data);
-			var url = 'http://113.198.80.60:8080/geoserver/wfs?service=WFS&' +
+			var url = 'http://192.168.0.9/geoserver/wfs?service=WFS&' +
 			'version=1.1.0&request=GetFeature&' +
 			'typeNames=korea:'+data+
 			'&outputFormat=application/json' +
 			'&srsname=EPSG:3857&bbox=' + extent.join(',') + ',EPSG:3857';
+			//console.log(url);
 			$.ajax({
-				url: url,
+				//url: url,
+				url : 'loadVector.do',
 				dataType: 'json',
 				success:loadFeatures 
 			});
@@ -26,6 +28,7 @@ Layer.createLayer = function(data,color,width){
 		projection: 'EPSG:3857'
 	}); 
 	loadFeatures = function(response){
+		console.log(response);
 		Layer.vectorSource.addFeatures(Layer.vectorSource.readFeatures(response)); 
 	};
 	

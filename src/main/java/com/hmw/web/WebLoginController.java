@@ -37,7 +37,7 @@ public class WebLoginController {
 	 
 	
 	@RequestMapping(headers="Content-Type=application/json", value="/createWorkspace.do",
-					method=RequestMethod.POST)
+					method={RequestMethod.POST,RequestMethod.GET})
 	public @ResponseBody Map<String, Object> workspaceCreate(@RequestBody String JSONData){
 		
 		Map<String, Object> message = new HashMap<String, Object>();
@@ -62,14 +62,15 @@ public class WebLoginController {
 			method=RequestMethod.POST)
 	public @ResponseBody Map<String, Object> loadVector(@RequestBody String JSONData){
 		//System.out.println(geomanager.requestLoadVector());
-
+		geomanager.requestLoadVector("korea", "");
+		/*
 		Map<String, Object> message = new HashMap<String, Object>();
 		try {
 			Map<String,Object> data = Util.convertJsonToObject(JSONData);
 		//	geomanager.requestLoadVector("korea", data.get("name").toString());
 			message.put("result", "OK");
 			message.put("message", null);
-			message.put("data", geomanager.requestLoadVector("korea", data.get("name").toString() ));
+		//	message.put("data", geomanager.requestLoadVector("korea", data.get("name").toString() ));
 			return message;
 		} catch (Exception e) { 
 			// TODO Auto-generated catch block
@@ -79,7 +80,9 @@ public class WebLoginController {
 			return message;
 		} 
 		//return geomanager.requestLoadVector();
-		//return null;
+		 * 
+		 */
+		return null;
 	}
 	
 	

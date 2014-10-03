@@ -1,7 +1,10 @@
 package com.hmw.geomanager;
 
+import java.io.IOException;
+
 import it.geosolutions.geoserver.rest.decoder.RESTLayer;
 
+import org.codehaus.jackson.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -21,8 +24,15 @@ public class GeoManagerServiceImp implements GeoManagerService {
 	}
 
 	@Override
-	public RESTLayer requestLoadVector(String workspace, String name) {
+	public String requestLoadVector(String workspace, String name) {
 		// TODO Auto-generated method stub
-		return geo_manager.geoserverLoadVector(workspace,name);
+			try {
+				return geo_manager.geoserverLoadVector(workspace,name).readValueAsTree().toString();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
+				return null;
+			} 
 	} 
 }

@@ -17,9 +17,7 @@ import com.hmw.util.Util;
  
 
 @Controller
-public class WebPublicController {
-
-	
+public class WebPublicController { 
 
 	@Autowired
 	PublicDataService pds;
@@ -30,11 +28,8 @@ public class WebPublicController {
 		Map<String, Object> message = new HashMap<String, Object>();
 		try {
 			Map<String,Object> data = Util.convertJsonToObject(JSONData); 
-			String result = data.get("name").toString();
 			message.put("result", "OK");
-			message.put("message", null);
-			message.put("data", result);
-			
+			message.put("message", null);			
 			message.put("data", pds.requestSeoulPublicData("1", "1"));
 			
 			return message;			
